@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -83,7 +84,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
           <nav className="relative flex w-full flex-wrap items-center justify-between rounded-xl p-4 backdrop-blur-md md:flex-nowrap md:rounded-2xl bg-[var(--glass-bg)] border border-border shadow-glass">
             <div className="flex">
               <Link href={home} className="inline-flex items-center">
-                <h1 className="text-xl">Bing</h1>
+                <Image src="/icon.png" alt="Tebing Rizky Tsaniansyah" width={36} height={36} priority />
               </Link>
             </div>
             <div className="hidden md:flex items-center space-x-6">

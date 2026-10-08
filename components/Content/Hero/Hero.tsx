@@ -40,7 +40,7 @@ export default function Hero({ lang }: { lang: Lang }) {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground mb-6">
-              Full Stack Engineer
+              Web App Developer
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">

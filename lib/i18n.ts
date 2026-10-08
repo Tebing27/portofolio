@@ -10,7 +10,7 @@ export const basePath = (lang: Lang) => (lang === "en" ? "/en" : "/");
 
 export const dict = {
   id: {
-    title: `${NAME} – Full Stack Engineer | Portofolio`,
+    title: `${NAME} – Web App Developer | Portofolio`,
     description:
       "Portofolio Tebing Rizky Tsaniansyah, Full Stack Engineer asal Jakarta. Membangun aplikasi web modern dengan Next.js, React, TypeScript, Node.js, dan Supabase.",
     nav: { home: "Beranda", work: "Portofolio", contact: "Kontak" },
@@ -25,7 +25,7 @@ export const dict = {
     copied: "Tersalin ✓",
   },
   en: {
-    title: `${NAME} – Full Stack Engineer | Portfolio`,
+    title: `${NAME} – Web App Developer | Portfolio`,
     description:
       "Portfolio of Tebing Rizky Tsaniansyah, a Jakarta-based Full Stack Engineer building modern web apps with Next.js, React, TypeScript, Node.js, and Supabase.",
     nav: { home: "Home", work: "Portfolio", contact: "Contact" },
@@ -47,6 +47,8 @@ export const keywords = [
   `${NAME} Full Stack Engineer`,
   "Tebing Full Stack Engineer",
   "Tebing Rizky Full Stack Engineer",
+  `${NAME} Web App Developer`,
+  "Web App Developer Jakarta",
   "Tebing Rizky",
   "Tebing Tsaniansyah",
   "Full Stack Engineer Jakarta",

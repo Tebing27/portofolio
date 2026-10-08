@@ -173,7 +173,7 @@ export default function PortfolioSection({ lang }: { lang: Lang }) {
       <div className="mx-auto max-w-5xl">
         <div className="text-center mb-12">
           <h1 className="font-extrabold text-3xl md:text-4xl text-center">
-            PORTFOLIO
+            {t.nav.work.toUpperCase()}
           </h1>
         </div>
 

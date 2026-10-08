@@ -107,8 +107,9 @@ export default function Navbar({ lang }: { lang: Lang }) {
             {/* Kanan */}
             <div className="flex items-center space-x-2">
               <div className="flex items-center rounded-full border border-border p-0.5 text-xs font-semibold" aria-label="Language">
+                {/* plain <a>: switching locale swaps the root layout, so do a full load */}
                 {(["id", "en"] as const).map((l) => (
-                  <Link
+                  <a
                     key={l}
                     href={basePath(l)}
                     hrefLang={l}
@@ -116,7 +117,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
                     className={`rounded-full px-2.5 py-1 uppercase transition-colors ${l === lang ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
                   >
                     {l}
-                  </Link>
+                  </a>
                 ))}
               </div>
               <button onClick={toggleTheme} className="cursor-pointer">

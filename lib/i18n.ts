@@ -1,7 +1,8 @@
 export const locales = ["id", "en"] as const;
 export type Lang = (typeof locales)[number];
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tebing.vercel.app";
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://tebing.vercel.app";
 export const NAME = "Tebing Rizky Tsaniansyah";
 
 // "/" serves Indonesian (rewritten to /id), "/en" serves English
@@ -9,19 +10,19 @@ export const basePath = (lang: Lang) => (lang === "en" ? "/en" : "/");
 
 export const dict = {
   id: {
-    title: `${NAME} – Full Stack Engineer | Portfolio`,
+    title: `${NAME} – Full Stack Engineer | Portofolio`,
     description:
-      "Portfolio Tebing Rizky Tsaniansyah, Full Stack Engineer asal Jakarta. Membangun aplikasi web modern dengan Next.js, React, TypeScript, Node.js, dan Supabase.",
-    nav: { home: "Beranda", work: "Portfolio", contact: "Kontak" },
+      "Portofolio Tebing Rizky Tsaniansyah, Full Stack Engineer asal Jakarta. Membangun aplikasi web modern dengan Next.js, React, TypeScript, Node.js, dan Supabase.",
+    nav: { home: "Beranda", work: "Portofolio", contact: "Kontak" },
     hello: "Hai, Saya Tebing 👋",
-    tagline: "Mengubah ide menjadi aplikasi web modern yang cepat, responsif, dan mudah digunakan.",
+    tagline:
+      "Mengubah ide menjadi aplikasi web modern yang cepat, responsif, dan mudah digunakan.",
     contactTagline: "Mari terhubung dan berkolaborasi!",
     more: "selengkapnya",
     less: "lebih sedikit",
     share: "Bagikan",
     copy: "Salin link",
     copied: "Tersalin ✓",
-    rights: "Hak cipta dilindungi.",
   },
   en: {
     title: `${NAME} – Full Stack Engineer | Portfolio`,
@@ -29,7 +30,8 @@ export const dict = {
       "Portfolio of Tebing Rizky Tsaniansyah, a Jakarta-based Full Stack Engineer building modern web apps with Next.js, React, TypeScript, Node.js, and Supabase.",
     nav: { home: "Home", work: "Portfolio", contact: "Contact" },
     hello: "Hi, I'm Tebing 👋",
-    tagline: "Turning ideas into modern web apps that are fast, responsive, and easy to use.",
+    tagline:
+      "Turning ideas into modern web apps that are fast, responsive, and easy to use.",
     contactTagline: "Let's connect and collaborate!",
     more: "read more",
     less: "show less",
@@ -52,4 +54,5 @@ export const keywords = [
   "Next.js Developer",
   "React Developer",
   "Portfolio",
+  "Portofolio",
 ];

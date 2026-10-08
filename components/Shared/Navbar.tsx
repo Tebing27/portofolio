@@ -77,7 +77,7 @@ export default function Navbar() {
     <>
       <header className="sticky top-4 z-50 mt-4 px-4 sm:px-6 md:px-12">
         <div className="mx-auto max-w-5xl">
-          <nav className="relative flex w-full flex-wrap items-center justify-between rounded-xl p-4 backdrop-blur-md md:flex-nowrap md:rounded-2xl">
+          <nav className="relative flex w-full flex-wrap items-center justify-between rounded-xl p-4 backdrop-blur-md md:flex-nowrap md:rounded-2xl dark:bg-[var(--glass-bg)] dark:border dark:border-border dark:shadow-glass">
             <div className="flex">
               <Link href="/" className="inline-flex items-center">
                 <h1 className="text-xl">Bing</h1>
@@ -127,7 +127,7 @@ export default function Navbar() {
                   : "max-h-0 opacity-0 overflow-hidden"
                   }`}
               >
-                <div className="px-2 pt-2 pb-3 space-y-1 bg-background/64 backdrop-blur-md  sm:px-3 text-left">
+                <div className="px-2 pt-2 pb-3 space-y-1 bg-background/64 backdrop-blur-md dark:bg-card/95 dark:border dark:border-border dark:rounded-xl  sm:px-3 text-left">
                   {publicLinks.map((link) => (
                     <Link
                       key={link.label}

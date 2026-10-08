@@ -13,7 +13,7 @@ const contactData = [
     id: 2,
     platform: "LinkedIn",
     username: "Tebing",
-    href: "https://www.linkedin.com/in/tebing-rizky-7ab6391ba/",
+    href: "https://www.linkedin.com/in/tebing/",
     icon: <LinkedInIcon size={40} />,
   },
 ];
@@ -38,7 +38,7 @@ export default function Contact() {
               href={contact.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between bg-card border border-border rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="group flex items-center justify-between bg-card border border-border rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:hover:shadow-primary dark:hover:border-primary/30"
             >
               <div className="flex items-center gap-4">
                 <div className="transition-transform duration-300 group-hover:scale-110">
@@ -53,8 +53,11 @@ export default function Contact() {
                   </span>
                 </div>
               </div>
-              <div className="bg-muted p-4 rounded-full group-hover:bg-primary transition-all duration-300">
-                <ArrowIcon size={20} className="transition-transform duration-300 group-hover:rotate-45" />
+              <div className="bg-muted p-4 rounded-full group-hover:bg-primary dark:group-hover:text-primary-foreground transition-all duration-300">
+                <ArrowIcon
+                  size={20}
+                  className="transition-transform duration-300 group-hover:rotate-45"
+                />
               </div>
             </Link>
           ))}

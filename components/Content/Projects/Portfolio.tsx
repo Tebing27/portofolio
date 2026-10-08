@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import {
-  KebabMenu,
   LoveAwal,
   LoveIcon,
   MusicIcon,
@@ -13,6 +12,7 @@ import {
   FigmaIcon,
 } from "@/components/svg/Icon";
 import ReadMore from "@/components/Shared/ReadMore";
+import ShareMenu from "@/components/Shared/ShareMenu";
 import { useState } from "react";
 
 // Interface untuk type safety
@@ -36,7 +36,7 @@ const cards: ProjectCard[] = [
     logo: "/logo.svg",
     image: "/project_1.webp",
     buttonText: "Lihat Detail",
-    text: `Saya dipercaya sebagai Web Developer & UI Designer untuk membangun identitas digital Rise Bar, sebuah proyek inovasi pangan yang berhasil lolos pendanaan PKM-K (Kewirausahaan) dari Kemdikbudristek.`,
+    text: "Web Developer & UI Designer untuk landing page Rise Bar, inovasi pangan lokal penerima pendanaan PKM-K Kemdikbudristek. Dibangun dengan Next.js, TypeScript, dan Tailwind CSS.",
     href: "https://github.com/Tebing27/rise-bar-final",
     button: "Github",
     technologies: ["TypeScript", "Tailwind CSS", "Next.js"],
@@ -47,7 +47,7 @@ const cards: ProjectCard[] = [
     title: `UMKM Kreator – Top 10 Finalist: Alibaba Cloud "AI × Creativity" Competition`,
     logo: "/logo.svg",
     image: "/project_4.webp",
-    text: `Proyek inovatif ini dikembangkan untuk kompetisi 'AI × Creativity = The Next Big Thing!' yang diselenggarakan oleh Alibaba Cloud. Dari total lebih dari 100 tim yang berpartisipasi, UMKM Kreator berhasil terpilih sebagai salah satu dari 10 Finalis Terbaik. Fokus utama proyek ini adalah mendemokratisasi teknologi kecerdasan buatan (AI) bagi pelaku usaha lokal. Saya merancang platform yang mengintegrasikan kreativitas desain dengan kapabilitas AI untuk membantu UMKM naik kelas melalui digitalisasi yang cerdas dan efisien. Menjadi bagian dari 10 besar dalam ajang skala global ini memvalidasi kemampuan saya dalam menciptakan solusi teknologi yang relevan dan kompetitif di industri.`,
+    text: "Top 10 Finalis dari 100+ tim di kompetisi Alibaba Cloud \"AI × Creativity\". Platform yang memadukan desain dan AI agar UMKM lokal naik kelas lewat digitalisasi yang cerdas dan efisien.",
     buttonText: "Lihat Detail",
     href: "https://github.com/Tebing27/umkm-kreator",
     button: "Github",
@@ -59,7 +59,7 @@ const cards: ProjectCard[] = [
     title: "UI/UX Design - Website Resmi Masjid Ar-Raudhah",
     logo: "/logo.svg",
     image: "/project_7.webp",
-    text: "Saya merancang UI/UX untuk website resmi Masjid Ar-Raudhah sebagai proyek client yang telah diimplementasikan dan digunakan secara langsung oleh publik. Desain difokuskan pada kemudahan akses informasi seperti jadwal sholat, kajian, artikel, serta fitur donasi online, dengan pendekatan modern, responsif, dan user-friendly untuk mendukung aktivitas ibadah, edukasi, dan sosial masjid.",
+    text: "UI/UX website resmi Masjid Ar-Raudhah yang sudah dipakai publik: jadwal sholat, kajian, artikel, dan donasi online. Desain modern, responsif, dan mudah diakses.",
     buttonText: "Lihat Detail",
     technologies: ["UI/UX", "Figma", "Design System"],
     liveUrl: "https://masjidarraudhah.or.id/",
@@ -69,7 +69,7 @@ const cards: ProjectCard[] = [
     title: "Winner Project: 2nd Place Cloud Computing Club Competition (C4) DKI Jakarta",
     logo: "/logo.svg",
     image: "/project_3.webp",
-    text: "Proyek ini dirancang khusus untuk Cloud Computing Club Competition (C4) tingkat DKI Jakarta, di mana saya berhasil meraih Juara 2.",
+    text: "Juara 2 Cloud Computing Club Competition (C4) tingkat DKI Jakarta. Website dibuat dengan HTML, CSS, dan JavaScript.",
     buttonText: "Lihat Detail",
     href: "https://github.com/Tebing27/lombaC4",
     button: "Github",
@@ -82,7 +82,7 @@ const cards: ProjectCard[] = [
     title: "ITechno 49 – Membangun Komunitas IT Sekolah Melalui Platform Digital",
     image: "/project_2.webp",
     buttonText: "Lihat Detail",
-    text: "Proyek ini adalah langkah awal perjalanan saya sebagai pengembang web. Sebagai bagian dari ekskul ITechno di SMAN 49 Jakarta, saya merancang dan mengembangkan platform ini untuk berfungsi sebagai pusat informasi, galeri karya, dan wadah kolaborasi antar anggota.",
+    text: "Platform informasi, galeri karya, dan kolaborasi untuk ekskul ITechno SMAN 49 Jakarta. Proyek pertama saya sebagai web developer.",
     href: "https://github.com/Tebing27/ITechno49",
     button: "Github",
     technologies: ["HTML", "Javascript", "CSS"],
@@ -94,7 +94,7 @@ const cards: ProjectCard[] = [
     title: "Website Design - Lomba Multimedia (UPNVJ) in Action 2025",
     logo: "/logo.svg",
     image: "/project_5.webp",
-    text: "Website ini dikembangkan untuk mengikuti Multimedia (UPNVJ) in Action 2025, sebuah kompetisi yang berfokus pada inovasi dan kreativitas digital. Proyek ini menampilkan implementasi web modern dengan desain responsif, performa optimal, serta pengalaman pengguna yang intuitif sebagai representasi kemampuan dalam membangun solusi digital yang siap digunakan.",
+    text: "Website responsif untuk lomba Multimedia (UPNVJ) in Action 2025, dengan performa cepat dan pengalaman pengguna yang intuitif.",
     buttonText: "Lihat Detail",
     href: "https://github.com/Tebing27/wia-mamung",
     button: "Github",
@@ -106,7 +106,7 @@ const cards: ProjectCard[] = [
     title: "UI/UX Design - Lomba Multimedia (UPNVJ) in Action 2025",
     logo: "/logo.svg",
     image: "/project_6.webp",
-    text: 'LinkSub adalah konsep aplikasi sub-wallet kolaboratif yang dikembangkan untuk kompetisi Multimedia (UPNVJ) in Action 2025. Aplikasi ini memudahkan pengelolaan keuangan bersama melalui fitur seperti voting transaksi, notifikasi real-time, dan transparansi aktivitas. Desain UI/ UX difokuskan pada kesederhanaan, kejelasan informasi, serta pengalaman pengguna yang intuitif untuk mendukung pengambilan keputusan finansial secara kolektif.',
+    text: "LinkSub: konsep aplikasi sub-wallet kolaboratif untuk Multimedia (UPNVJ) in Action 2025, dengan voting transaksi, notifikasi real-time, dan transparansi aktivitas.",
     buttonText: "Lihat Detail",
     href: "https://www.figma.com/proto/KWCL0IYCsEo8uaabmxpcjr/Lomba-MIA2025?page-id=0%3A1&node-id=344-4236&p=f&viewport=263%2C343%2C0.02&t=se0h1y1ADyIoIitK-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=344%3A4236&show-proto-sidebar=1",
     button: "Figma",
@@ -162,14 +162,14 @@ export default function PortfolioSection() {
           </h1>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-start">
           {cards.map((card) => (
             <article
               key={card.id}
-              className="bg-card text-card-foreground rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-border flex flex-col h-full"
+              className="bg-card text-card-foreground rounded-2xl shadow-lg hover:shadow-xl dark:shadow-none dark:hover:shadow-primary dark:hover:border-primary/30 transition-all duration-300 overflow-hidden border border-border flex flex-col"
             >
               {/* Header */}
-              <div className="p-4 flex flex-col h-full flex-grow">
+              <div className="p-4 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-center gap-3">
                     <div className="rounded-full bg-muted w-12 h-12 flex items-center justify-center">
@@ -197,9 +197,7 @@ export default function PortfolioSection() {
                       </div>
                     </div>
                   </div>
-                  <button className="p-1 hover:bg-accent rounded-full transition-colors text-foreground">
-                    <KebabMenu />
-                  </button>
+                  <ShareMenu title={card.title} url={card.liveUrl ?? card.href} />
                 </div>
 
                 {/* Project Image */}
@@ -294,7 +292,7 @@ export default function PortfolioSection() {
                     {card.liveUrl && (
                       <button
                         onClick={() => handleLiveDemo(card.liveUrl)}
-                        className="flex items-center gap-2 px-4 py-2 border border-border text-foreground rounded-lg hover:bg-accent dark:hover:bg-accent transition-colors font-medium"
+                        className="flex items-center gap-2 px-4 py-2 border border-border text-foreground rounded-lg hover:bg-accent transition-colors font-medium"
                       >
                         🚀 Demo
                       </button>

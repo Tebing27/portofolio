@@ -5,7 +5,7 @@ interface ButtonProps {
 }
 
 export function Button({ label, href, download }: ButtonProps) {
-  const commonClass = "relative border-2 border-btn-black bg-primary px-10 py-3 font-semibold cursor-pointer inline-block";
+  const commonClass = "relative border-2 border-btn-black bg-primary text-neutral-950 px-10 py-3 font-semibold cursor-pointer inline-block";
 
   return (
     <div className="relative inline-flex mt-12 transition delay-150 duration-300 ease-in-out hover:-translate-y-1">

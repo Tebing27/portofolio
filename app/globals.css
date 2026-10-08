@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #f8f5f2;
   --foreground: #1a1a1a;
@@ -40,37 +42,43 @@
 }
 /* --primary: #9d4edd; */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.269 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: #9d4edd;
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.371 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.439 0 0);
+  /* zinc-based dark palette, violet accent */
+  --background: #09090b;
+  --foreground: #fafafa;
+  --card: #111113;
+  --card-rgb: 17 17 19;
+  --card-foreground: #fafafa;
+  --popover: #18181b;
+  --popover-foreground: #fafafa;
+  --primary: #a78bfa;
+  --primary-foreground: #0a0a0a;
+  --secondary: #18181b;
+  --secondary-foreground: #fafafa;
+  --muted: #1c1c20;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+  --border: rgb(255 255 255 / 0.08);
+  --input: rgb(255 255 255 / 0.12);
+  --ring: #a78bfa;
+
+  --shadow-primary: 0 0 0 1px rgb(167 139 250 / 0.25),
+    0 8px 30px -8px rgb(167 139 250 / 0.35);
+  --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.5);
+  --btn-black: #fafafa;
+  --glass-bg: rgb(9 9 11 / 0.7);
+  --glass-border: rgb(255 255 255 / 0.08);
+}
+
+.dark body {
+  background:
+    radial-gradient(60rem 30rem at 50% -10%, rgb(167 139 250 / 0.12), transparent 70%),
+    var(--background);
+  background-attachment: fixed;
+}
+
+.dark ::selection {
+  background: rgb(167 139 250 / 0.35);
 }
 
 @theme inline {
@@ -83,6 +91,8 @@
   --color-green: var(--green);
   --color-btn-black: var(--btn-black);
   --color-card: var(--card);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
   --color-card-foreground: var(--card-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -96,7 +106,7 @@
   --glass-bg: var(--glass-bg);
   --glass-border: var(--glass-border);
   --transition-smooth: var(--transition-smooth);
-  --font-sans: var(--font-inter-sans);
+  --font-sans: var(--font-jakarta-sans);
   --font-mono: var(--font-ibm-mono);
 }
 

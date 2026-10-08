@@ -46,10 +46,10 @@ export default function Hero() {
               dan mudah digunakan.
             </p>
 
-            <Button 
-              label="CV Download" 
-              href="/CV_TebingRizkyT.pdf" 
-              download="CV_TebingRizkyT.pdf" 
+            <Button
+              label="CV Download"
+              href="/CV_TebingRizkyTsaniansyah.pdf"
+              download="CV_TebingRizkyTsaniansyah.pdf"
             />
           </div>
           <div className="px-4 sm:px-6 md:px-12 py-4 mb-14">

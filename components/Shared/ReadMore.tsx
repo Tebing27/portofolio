@@ -7,7 +7,7 @@ interface WordMore {
   amountWords?: number;
 }
 
-export default function ReadMore({ id, text, amountWords = 23 }: WordMore) {
+export default function ReadMore({ id, text, amountWords = 110 }: WordMore) {
   const [isOpen, setOpen] = useState(false);
   const splittedText = text.split("");
   const itCanOverflow = splittedText.length > amountWords;
@@ -27,7 +27,7 @@ export default function ReadMore({ id, text, amountWords = 23 }: WordMore) {
               {endText}
             </span>
             <span
-              className="text-blue-400 ml-2 tex-sm cursor-pointer"
+              className="text-blue-500 dark:text-primary hover:underline ml-2 tex-sm cursor-pointer"
               role="button"
               tabIndex={0}
               aria-expanded={isOpen}

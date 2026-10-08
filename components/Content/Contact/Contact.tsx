@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowIcon, InstagramIcon, LinkedInIcon } from "@/components/svg/Icon";
+import { dict, type Lang } from "@/lib/i18n";
 
 const contactData = [
   {
@@ -12,22 +13,22 @@ const contactData = [
   {
     id: 2,
     platform: "LinkedIn",
-    username: "Tebing",
+    username: "Tebing Rizky Tsaniansyah",
     href: "https://www.linkedin.com/in/tebing/",
     icon: <LinkedInIcon size={40} />,
   },
 ];
 
-export default function Contact() {
+export default function Contact({ lang }: { lang: Lang }) {
   return (
     <section id="contact" className="px-4 sm:px-6 md:px-12 py-24 mb-12">
       <div className="mx-auto max-w-5xl w-full">
         <div className="text-center mb-12">
           <h1 className="font-extrabold text-3xl md:text-4xl text-center">
-            CONTACT
+            {dict[lang].nav.contact.toUpperCase()}
           </h1>
           <p className="text-muted-foreground mt-4 text-lg">
-            Let&apos;s connect and collaborate!
+            {dict[lang].contactTagline}
           </p>
         </div>
 

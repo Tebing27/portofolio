@@ -5,21 +5,24 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from "../svg/Icon";
 import { useTheme } from "./ThemeIcon";
+import { basePath, dict, type Lang } from "@/lib/i18n";
 
-const publicLinks = [
-  { href: "/", label: "Home" },
-  { href: "/#work", label: "Portfolio" },
-  { href: "/#contact", label: "Contact" },
-];
+export default function Navbar({ lang }: { lang: Lang }) {
+  const home = basePath(lang);
+  const t = dict[lang].nav;
+  const publicLinks = [
+    { href: home, label: t.home },
+    { href: `${home === "/" ? "" : home}/#work`, label: t.work },
+    { href: `${home === "/" ? "" : home}/#contact`, label: t.contact },
+  ];
 
-export default function Navbar() {
   const [isOpen, setOpen] = useState(false);
   const pathname = usePathname();
   const [isActive, setActive] = useState("");
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
-    if (pathname === "/") {
+    if (pathname === home) {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -43,8 +46,8 @@ export default function Navbar() {
 
       //Membaca layar ID
       publicLinks.forEach((link) => {
-        if (link.href.startsWith("/#")) {
-          const sectionId = link.href.substring(2);
+        if (link.href.includes("#")) {
+          const sectionId = link.href.split("#")[1];
           const section = document.getElementById(sectionId);
           if (section) {
             observer.observe(section);
@@ -57,18 +60,18 @@ export default function Navbar() {
         window.removeEventListener("scroll", handleScroll);
       };
     }
-  }, [pathname]);
+  }, [pathname, home]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const isActiveHref = (href: string) => {
     //Untuk hash halaman biasa
-    if (href === "/") {
-      return pathname === "/" && isActive === "";
+    if (href === home) {
+      return pathname === home && isActive === "";
     }
 
     //Untuk hash halaman #
-    if (href.startsWith("/#")) {
-      const sectionId = href.substring(2);
-      return pathname === "/" && isActive === sectionId;
+    if (href.includes("#")) {
+      const sectionId = href.split("#")[1];
+      return pathname === home && isActive === sectionId;
     }
     return pathname === href;
   };
@@ -77,9 +80,9 @@ export default function Navbar() {
     <>
       <header className="sticky top-4 z-50 mt-4 px-4 sm:px-6 md:px-12">
         <div className="mx-auto max-w-5xl">
-          <nav className="relative flex w-full flex-wrap items-center justify-between rounded-xl p-4 backdrop-blur-md md:flex-nowrap md:rounded-2xl dark:bg-[var(--glass-bg)] dark:border dark:border-border dark:shadow-glass">
+          <nav className="relative flex w-full flex-wrap items-center justify-between rounded-xl p-4 backdrop-blur-md md:flex-nowrap md:rounded-2xl bg-[var(--glass-bg)] border border-border shadow-glass">
             <div className="flex">
-              <Link href="/" className="inline-flex items-center">
+              <Link href={home} className="inline-flex items-center">
                 <h1 className="text-xl">Bing</h1>
               </Link>
             </div>
@@ -103,6 +106,19 @@ export default function Navbar() {
             </div>
             {/* Kanan */}
             <div className="flex items-center space-x-2">
+              <div className="flex items-center rounded-full border border-border p-0.5 text-xs font-semibold" aria-label="Language">
+                {(["id", "en"] as const).map((l) => (
+                  <Link
+                    key={l}
+                    href={basePath(l)}
+                    hrefLang={l}
+                    aria-current={l === lang ? "true" : undefined}
+                    className={`rounded-full px-2.5 py-1 uppercase transition-colors ${l === lang ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
+                  >
+                    {l}
+                  </Link>
+                ))}
+              </div>
               <button onClick={toggleTheme} className="cursor-pointer">
                 {theme === "light" ? <SunIcon /> : <MoonIcon />}
               </button>
@@ -127,7 +143,7 @@ export default function Navbar() {
                   : "max-h-0 opacity-0 overflow-hidden"
                   }`}
               >
-                <div className="px-2 pt-2 pb-3 space-y-1 bg-background/64 backdrop-blur-md dark:bg-card/95 dark:border dark:border-border dark:rounded-xl  sm:px-3 text-left">
+                <div className="px-2 pt-2 pb-3 space-y-1 bg-card/95 backdrop-blur-md border border-border rounded-xl  sm:px-3 text-left">
                   {publicLinks.map((link) => (
                     <Link
                       key={link.label}

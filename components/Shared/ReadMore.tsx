@@ -5,9 +5,10 @@ interface WordMore {
   id: string;
   text: string;
   amountWords?: number;
+  labels: { more: string; less: string };
 }
 
-export default function ReadMore({ id, text, amountWords = 110 }: WordMore) {
+export default function ReadMore({ id, text, amountWords = 110, labels }: WordMore) {
   const [isOpen, setOpen] = useState(false);
   const splittedText = text.split("");
   const itCanOverflow = splittedText.length > amountWords;
@@ -34,7 +35,7 @@ export default function ReadMore({ id, text, amountWords = 110 }: WordMore) {
               aria-controls={id}
               onClick={() => setOpen(!isOpen)}
             >
-              {isOpen ? "lebih sedikit" : "selengkapnya"}
+              {isOpen ? labels.less : labels.more}
             </span>
           </>
         )}

@@ -14,15 +14,15 @@ import {
 import ReadMore from "@/components/Shared/ReadMore";
 import ShareMenu from "@/components/Shared/ShareMenu";
 import { useState } from "react";
+import { dict, type Lang } from "@/lib/i18n";
 
 // Interface untuk type safety
 interface ProjectCard {
   id: number;
-  title: string;
+  title: Record<Lang, string>;
   logo: string;
   image: string;
-  buttonText: string;
-  text: string;
+  text: Record<Lang, string>;
   href?: string;
   button?: string;
   technologies?: string[];
@@ -32,11 +32,13 @@ interface ProjectCard {
 const cards: ProjectCard[] = [
   {
     id: 1,
-    title: "Rise Bar Indonesia – Landing Page Inovasi Pangan Lokal",
+    title: { id: "Rise Bar Indonesia – Landing Page Inovasi Pangan Lokal", en: "Rise Bar Indonesia – Local Food Innovation Landing Page" },
     logo: "/logo.svg",
     image: "/project_1.webp",
-    buttonText: "Lihat Detail",
-    text: "Web Developer & UI Designer untuk landing page Rise Bar, inovasi pangan lokal penerima pendanaan PKM-K Kemdikbudristek. Dibangun dengan Next.js, TypeScript, dan Tailwind CSS.",
+    text: {
+      id: "Web Developer & UI Designer untuk landing page Rise Bar, inovasi pangan lokal penerima pendanaan PKM-K Kemdikbudristek. Dibangun dengan Next.js, TypeScript, dan Tailwind CSS.",
+      en: "Web Developer & UI Designer for the Rise Bar landing page, a local food innovation funded by the PKM-K grant from Indonesia's Ministry of Education. Built with Next.js, TypeScript, and Tailwind CSS.",
+    },
     href: "https://github.com/Tebing27/rise-bar-final",
     button: "Github",
     technologies: ["TypeScript", "Tailwind CSS", "Next.js"],
@@ -44,11 +46,13 @@ const cards: ProjectCard[] = [
   },
   {
     id: 4,
-    title: `UMKM Kreator – Top 10 Finalist: Alibaba Cloud "AI × Creativity" Competition`,
+    title: { id: `UMKM Kreator – Top 10 Finalist: Alibaba Cloud "AI × Creativity" Competition`, en: `UMKM Kreator – Top 10 Finalist: Alibaba Cloud "AI × Creativity" Competition` },
     logo: "/logo.svg",
     image: "/project_4.webp",
-    text: "Top 10 Finalis dari 100+ tim di kompetisi Alibaba Cloud \"AI × Creativity\". Platform yang memadukan desain dan AI agar UMKM lokal naik kelas lewat digitalisasi yang cerdas dan efisien.",
-    buttonText: "Lihat Detail",
+    text: {
+      id: "Top 10 Finalis dari 100+ tim di kompetisi Alibaba Cloud \"AI × Creativity\". Platform yang memadukan desain dan AI agar UMKM lokal naik kelas lewat digitalisasi yang cerdas dan efisien.",
+      en: "Top 10 Finalist out of 100+ teams in Alibaba Cloud's \"AI × Creativity\" competition. A platform blending design and AI to help local MSMEs grow through smart, efficient digitalization.",
+    },
     href: "https://github.com/Tebing27/umkm-kreator",
     button: "Github",
     technologies: ["React.js", "Tailwind CSS"],
@@ -56,21 +60,25 @@ const cards: ProjectCard[] = [
   },
   {
     id: 7,
-    title: "UI/UX Design - Website Resmi Masjid Ar-Raudhah",
+    title: { id: "UI/UX Design - Website Resmi Masjid Ar-Raudhah", en: "UI/UX Design - Ar-Raudhah Mosque Official Website" },
     logo: "/logo.svg",
     image: "/project_7.webp",
-    text: "UI/UX website resmi Masjid Ar-Raudhah yang sudah dipakai publik: jadwal sholat, kajian, artikel, dan donasi online. Desain modern, responsif, dan mudah diakses.",
-    buttonText: "Lihat Detail",
+    text: {
+      id: "UI/UX website resmi Masjid Ar-Raudhah yang sudah dipakai publik: jadwal sholat, kajian, artikel, dan donasi online. Desain modern, responsif, dan mudah diakses.",
+      en: "UI/UX for the Ar-Raudhah Mosque official website, live and used by the public: prayer times, study sessions, articles, and online donations. Modern, responsive, and accessible design.",
+    },
     technologies: ["UI/UX", "Figma", "Design System"],
     liveUrl: "https://masjidarraudhah.or.id/",
   },
   {
     id: 3,
-    title: "Winner Project: 2nd Place Cloud Computing Club Competition (C4) DKI Jakarta",
+    title: { id: "Proyek Juara 2 Cloud Computing Club Competition (C4) DKI Jakarta", en: "Winner Project: 2nd Place Cloud Computing Club Competition (C4) DKI Jakarta" },
     logo: "/logo.svg",
     image: "/project_3.webp",
-    text: "Juara 2 Cloud Computing Club Competition (C4) tingkat DKI Jakarta. Website dibuat dengan HTML, CSS, dan JavaScript.",
-    buttonText: "Lihat Detail",
+    text: {
+      id: "Juara 2 Cloud Computing Club Competition (C4) tingkat DKI Jakarta. Website dibuat dengan HTML, CSS, dan JavaScript.",
+      en: "2nd place at the Cloud Computing Club Competition (C4), DKI Jakarta level. Website built with HTML, CSS, and JavaScript.",
+    },
     href: "https://github.com/Tebing27/lombaC4",
     button: "Github",
     technologies: ["HTML", "Javascript", "CSS"],
@@ -79,10 +87,12 @@ const cards: ProjectCard[] = [
   {
     id: 2,
     logo: "/logo.svg",
-    title: "ITechno 49 – Membangun Komunitas IT Sekolah Melalui Platform Digital",
+    title: { id: "ITechno 49 – Membangun Komunitas IT Sekolah Melalui Platform Digital", en: "ITechno 49 – Building a School IT Community Through a Digital Platform" },
     image: "/project_2.webp",
-    buttonText: "Lihat Detail",
-    text: "Platform informasi, galeri karya, dan kolaborasi untuk ekskul ITechno SMAN 49 Jakarta. Proyek pertama saya sebagai web developer.",
+    text: {
+      id: "Platform informasi, galeri karya, dan kolaborasi untuk ekskul ITechno SMAN 49 Jakarta. Proyek pertama saya sebagai web developer.",
+      en: "An information hub, project gallery, and collaboration space for the ITechno club at SMAN 49 Jakarta. My first project as a web developer.",
+    },
     href: "https://github.com/Tebing27/ITechno49",
     button: "Github",
     technologies: ["HTML", "Javascript", "CSS"],
@@ -91,11 +101,13 @@ const cards: ProjectCard[] = [
 
   {
     id: 5,
-    title: "Website Design - Lomba Multimedia (UPNVJ) in Action 2025",
+    title: { id: "Website Design - Lomba Multimedia (UPNVJ) in Action 2025", en: "Website Design - Multimedia (UPNVJ) in Action 2025 Competition" },
     logo: "/logo.svg",
     image: "/project_5.webp",
-    text: "Website responsif untuk lomba Multimedia (UPNVJ) in Action 2025, dengan performa cepat dan pengalaman pengguna yang intuitif.",
-    buttonText: "Lihat Detail",
+    text: {
+      id: "Website responsif untuk lomba Multimedia (UPNVJ) in Action 2025, dengan performa cepat dan pengalaman pengguna yang intuitif.",
+      en: "Responsive website for the Multimedia (UPNVJ) in Action 2025 competition, with fast performance and an intuitive user experience.",
+    },
     href: "https://github.com/Tebing27/wia-mamung",
     button: "Github",
     technologies: ["React.js", "Tailwind CSS"],
@@ -103,11 +115,13 @@ const cards: ProjectCard[] = [
   },
   {
     id: 6,
-    title: "UI/UX Design - Lomba Multimedia (UPNVJ) in Action 2025",
+    title: { id: "UI/UX Design - Lomba Multimedia (UPNVJ) in Action 2025", en: "UI/UX Design - Multimedia (UPNVJ) in Action 2025 Competition" },
     logo: "/logo.svg",
     image: "/project_6.webp",
-    text: "LinkSub: konsep aplikasi sub-wallet kolaboratif untuk Multimedia (UPNVJ) in Action 2025, dengan voting transaksi, notifikasi real-time, dan transparansi aktivitas.",
-    buttonText: "Lihat Detail",
+    text: {
+      id: "LinkSub: konsep aplikasi sub-wallet kolaboratif untuk Multimedia (UPNVJ) in Action 2025, dengan voting transaksi, notifikasi real-time, dan transparansi aktivitas.",
+      en: "LinkSub: a collaborative sub-wallet app concept for Multimedia (UPNVJ) in Action 2025, featuring transaction voting, real-time notifications, and activity transparency.",
+    },
     href: "https://www.figma.com/proto/KWCL0IYCsEo8uaabmxpcjr/Lomba-MIA2025?page-id=0%3A1&node-id=344-4236&p=f&viewport=263%2C343%2C0.02&t=se0h1y1ADyIoIitK-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=344%3A4236&show-proto-sidebar=1",
     button: "Figma",
     technologies: ["UI/UX", "Figma", "Design System"],
@@ -115,7 +129,8 @@ const cards: ProjectCard[] = [
 
 ];
 
-export default function PortfolioSection() {
+export default function PortfolioSection({ lang }: { lang: Lang }) {
+  const t = dict[lang];
   const [likedProjects, setLikedProjects] = useState<Set<number>>(new Set());
   const [savedProjects, setSavedProjects] = useState<Set<number>>(new Set());
 
@@ -175,7 +190,7 @@ export default function PortfolioSection() {
                     <div className="rounded-full bg-muted w-12 h-12 flex items-center justify-center">
                       <Image
                         src={card.logo}
-                        alt={`${card.title} logo`}
+                        alt={`${card.title[lang]} logo`}
                         width={24}
                         height={24}
                         className="object-contain"
@@ -197,14 +212,14 @@ export default function PortfolioSection() {
                       </div>
                     </div>
                   </div>
-                  <ShareMenu title={card.title} url={card.liveUrl ?? card.href} />
+                  <ShareMenu title={card.title[lang]} labels={t} url={card.liveUrl ?? card.href} />
                 </div>
 
                 {/* Project Image */}
                 <div className="relative h-48 w-full mb-4 bg-muted rounded-lg overflow-hidden shrink-0">
                   <Image
                     src={card.image}
-                    alt={card.title}
+                    alt={card.title[lang]}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover hover:scale-105 transition-transform duration-300"
@@ -252,10 +267,10 @@ export default function PortfolioSection() {
                 <div className="space-y-3 flex flex-col flex-grow">
                   <div>
                     <h3 className="font-bold text-xl text-foreground mb-2">
-                      {card.title}
+                      {card.title[lang]}
                     </h3>
                     <div className="text-muted-foreground">
-                      <ReadMore id={`read-more-${card.id}`} text={card.text} />
+                      <ReadMore id={`read-more-${card.id}`} text={card.text[lang]} labels={t} />
                     </div>
                   </div>
 

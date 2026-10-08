@@ -2,7 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import { KebabMenu } from "@/components/svg/Icon";
 
-export default function ShareMenu({ title, url }: { title: string; url?: string }) {
+type Labels = { share: string; copy: string; copied: string };
+
+export default function ShareMenu({ title, url, labels }: { title: string; url?: string; labels: Labels }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -41,7 +43,7 @@ export default function ShareMenu({ title, url }: { title: string; url?: string 
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        aria-label="Bagikan"
+        aria-label={labels.share}
         aria-expanded={open}
         className="p-1 hover:bg-accent rounded-full transition-colors text-foreground"
       >
@@ -55,7 +57,7 @@ export default function ShareMenu({ title, url }: { title: string; url?: string 
             </a>
           ))}
           <button onClick={copy} className={item}>
-            {copied ? "Tersalin ✓" : "Salin link"}
+            {copied ? labels.copied : labels.copy}
           </button>
         </div>
       )}

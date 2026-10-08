@@ -1,9 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     domains: ["images.unsplash.com"],
+  },
+  // Indonesian lives at "/", served by app/[lang] with lang=id
+  async redirects() {
+    return [{ source: "/id", destination: "/", permanent: true }];
+  },
+  async rewrites() {
+    return [{ source: "/", destination: "/id" }];
   },
 };
 

@@ -1,4 +1,5 @@
 import { Button } from "../../ui/Button";
+import { dict, type Lang } from "@/lib/i18n";
 import {
   DockerIcon,
   MongoIcon,
@@ -12,7 +13,8 @@ import {
   TypeScript,
 } from "../../svg/Icon";
 
-export default function Hero() {
+export default function Hero({ lang }: { lang: Lang }) {
+  const t = dict[lang];
   const techIcons = [
     <ReactIcon key="react1" />,
     <MongoIcon key="mongo" />,
@@ -34,16 +36,15 @@ export default function Hero() {
         <div className="mx-auto max-w-5xl w-full flex flex-col">
           <div className="py-14 text-center lg:py-20">
             <div className="inline-flex items-center gap-2 rounded-full bg-primary/15 px-4 h-10 mb-10 text-sm font-semibold text-foreground">
-              Hai, Saya Tebing 👋
+              {t.hello}
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground mb-6">
-              Web App Developer
+              Full Stack Engineer
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Mengubah ide menjadi aplikasi web modern yang cepat, responsif,
-              dan mudah digunakan.
+              {t.tagline}
             </p>
 
             <Button
